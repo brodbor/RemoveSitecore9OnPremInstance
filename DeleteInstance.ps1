@@ -1,6 +1,7 @@
-﻿
+﻿Import-Module WebAdministration
+
 #define parameters
-$prefix = "sitecore900xp0"
+$prefix = "sitecoreTest900xp0"
 $SolrRoot = "C:\Solr-6.6.1"
 $SqlServer = ".\MSSQLSERVER16"
 $SqlAdminUser = "sa"
@@ -19,10 +20,9 @@ $dbs +=$prefix+'_Core'
 $dbs +=$prefix+'_Master'
 $dbs +=$prefix+'_Web'
 $dbs +=$prefix+'_ExperienceForms'
+$dbs +=$prefix+'_EXM.Master'
 $dbs +=$prefix+'_Reporting'
 $dbs +=$prefix+'_Processing.Tasks'
-
-
 
 
 
@@ -42,8 +42,8 @@ write-host "[-------------------------------------------------------------------
 
 get-childitem -path "$SolrRoot\server\solr" -filter $prefix* | remove-item -force -recurse
 
-write-host "[---------------------------------------------------------------------------- IIS :  Delete Files -----------------------------------------------------------------------------]" -foregroundcolor "green"
-
+write-host "[---------------------------------------------------------------------------- IIS :  Remove Website/Delete Files -----------------------------------------------------------------------------]" -foregroundcolor "green"
+Remove-Website -Name $prefix* 
 get-childitem -path "$iisRoot" -filter $prefix* | remove-item -force -recurse
 
 write-host "[---------------------------------------------------------------------------- Solr : Start -----------------------------------------------------------------------------]" -foregroundcolor "green"
