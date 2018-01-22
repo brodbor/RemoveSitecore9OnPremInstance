@@ -3,9 +3,9 @@
 #define parameters
 $prefix = "sitecoreTest900xp0"
 $SolrRoot = "C:\Solr-6.6.1"
-$SqlServer = ".\MSSQLSERVER16"
+$SqlServer = ".\xxxxxxx"
 $SqlAdminUser = "sa"
-$SqlAdminPassword="Password1"
+$SqlAdminPassword="xxxxxx"
 $iisRoot = "C:\inetpub\wwwroot"
 
 
